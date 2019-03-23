@@ -327,9 +327,10 @@ stepsbyinterval &lt;- activity %&gt;% group_by(interval, day) %&gt;%
 </div>
 <div id="make-a-panel-plot-containing-a-time-series-plot-i.e.typel-of-the-5-minute-interval-x-axis-and-the-average-number-of-steps-taken-averaged-across-all-weekday-days-or-weekend-days-y-axis." class="section level4">
 <h4>2. Make a panel plot containing a time series plot (i.e.type=“l”) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</h4>
-<pre class="r"><code>library(ggplot2)
-
-#plot data by weekday or weekend factor
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## Use suppressPackageStartupMessages() to eliminate package startup
+## messages.</code></pre>
+<pre class="r"><code>#plot data by weekday or weekend factor
 qplot(interval, avgsteps, data = stepsbyinterval, geom = &quot;line&quot;)+ 
     facet_grid(day~.) +
     ggtitle(&quot;Weekend versus Weekday&quot;)+

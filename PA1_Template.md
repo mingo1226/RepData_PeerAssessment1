@@ -1,3 +1,8 @@
+---
+output: 
+  html_document: 
+    keep_md: yes
+---
 Reproduciple Research Project 1
 ===============================
 
@@ -37,6 +42,26 @@ Summary of total number of steps taken per day:
 
 ```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 activity <- group_by(activity, date)
 totalsteps <- summarise(activity, sum(steps, na.rm = TRUE))
 names(totalsteps) <- c("day", "total.steps")
@@ -67,7 +92,7 @@ hist(totalsteps$total.steps, breaks = 16, col = "green", xlab = "Total Steps per
      = "Histogram of Total Steps")
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![](PA1_Template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ####3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -89,7 +114,7 @@ stepsbyinterval<- activity %>% group_by(interval) %>%
 with(stepsbyinterval, plot(interval, avgsteps, type = "l", xlab = "5 minute intervals", main = "Avg Steps Per 5 Minute Intervals"))
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![](PA1_Template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
 
 
 ####2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -139,7 +164,7 @@ hist(totalsteps$total.steps, breaks = 16, col = "green", xlab = "Total Steps per
      = "Histogram of Total Steps")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
+![](PA1_Template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 
 
@@ -179,5 +204,5 @@ qplot(interval, avgsteps, data = stepsbyinterval, geom = "line")+
     ylab("Average Steps")
 ```
 
-![plot of chunk unnamed-chunk-13](figure/unnamed-chunk-13-1.png)
+![](PA1_Template_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
